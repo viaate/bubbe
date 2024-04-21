@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubbe's Birthday Adventure</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+<script>
+    function intro() {
+        document.write("<div class='intro'>");
+        document.write("<p>Welcome to Bubbe's Birthday Adventure!</p>");
+        document.write("<p>Your special recipe book has gone missing!</p>");
+        document.write("<p>Help me navigate through my memories to find it.</p>");
+        document.write("<p>But be careful, there might be surprises along the way!</p>");
+        document.write("</div>");
+    }
+
+    function start_game() {
+        document.write("<div class='content'>");
+        document.write("<p>You are walking and it is 5 in the morning.</p>");
+        document.write("<p>As you walk, you notice newspapers scattered on the sidewalk.</p>");
+        document.write("<p>You decide to help and bring the newspapers inside.</p>");
+        document.write("<br>");
+
+        setTimeout(function () {
+            document.write("<p>You continue walking and reach your the house.</p>");
+            document.write("<p>You enter the living room</p>");
+            document.write("<p>But today, the room looks different...</p>");
+            document.write("<p>You see three doors: one leads to the kitchen, one to the bedroom, and one to the memories room.</p>");
+            document.write("<br>");
+        }, 3000);
+
+        var visited_rooms = [];
+
+        function inputPrompt() {
+            var choice = prompt("Which door do you choose? (kitchen/bedroom/memories)").toLowerCase();
+            if (choice === "kitchen" && !visited_rooms.includes("kitchen")) {
+                kitchen();
+                visited_rooms.push("kitchen");
+            } else if (choice === "bedroom" && !visited_rooms.includes("bedroom")) {
+                bedroom();
+                visited_rooms.push("bedroom");
+            } else if (choice === "memories" && !visited_rooms.includes("memories")) {
+                memories();
+                visited_rooms.push("memories");
+            } else {
+                alert("Invalid choice or room already visited. Please try again.");
+                inputPrompt();
+            }
+        }
+
+        inputPrompt();
+    }
+
+    function kitchen() {
+        document.write("<p>You are in the kitchen.</p>");
+        document.write("<p>You smell something delicious...</p>");
+        document.write("<p>Your famous banana egg waffles with tons of chocolate chips!</p>");
+        document.write("<p>But the recipe book is nowhere to be found.</p>");
+        document.write("<p>You decide to enjoy a meal while you continue my search.</p>");
+        document.write("<p>As you eat, you hear a faint sound coming from the memories room.</p>");
+        document.write("<br>");
+        setTimeout(function () {}, 3000);
+    }
+
+    function bedroom() {
+        document.write("<p>You are in the bedroom.</p>");
+        document.write("<p>This room is filled with warmth and memories.</p>");
+        document.write("<p>You see a photo album on the nightstand.</p>");
+        document.write("<p>You flip through the pages and find pictures of your trips to Boston.</p>");
+        document.write("<p>You feel some nostalgia.</p>");
+        document.write("<br>");
+        setTimeout(function () {}, 3000);
+    }
+
+    function memories() {
+        document.write("<p>You are in the memories room.</p>");
+        document.write("<p>This room is filled with books and mementos.</p>");
+        document.write("<p>You spot a worn-out copy of 'The Little Prince' on the shelf.</p>");
+        document.write("<p>But still no sign of the recipe book...</p>");
+        document.write("<br>");
+        setTimeout(function () {}, 12000);
+    }
+
+    function ending() {
+        document.write("<p>Suddenly, you hear a familiar jingle at the door.</p>");
+        document.write("<p>It's Charlie, wagging her tail happily!</p>");
+        document.write("<p>She's brought the missing recipe book in her mouth!</p>");
+        document.write("<p>You can't help but smile as you thank her for finding it.</p>");
+        document.write("<p>With the recipe book in hand, you feel a sense of relief.</p>");
+        document.write("<p>Happy birthday Bubbe!</p>");
+        document.write("<br>");
+    }
+
+    function main() {
+        intro();
+        start_game();
+    }
+
+    main();
+</script>
+
+</body>
+</html>
