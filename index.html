@@ -57,7 +57,9 @@
         var gameContent = document.getElementById("gameContent");
         gameContent.innerHTML += roomContent;
         if (visited_rooms.length === 3) {
-            ending();
+            setTimeout(function() {
+                ending();
+            }, 5000); // 5 seconds delay
         }
     }
 
