@@ -6,6 +6,9 @@
     <title>Bubbe's Birthday Adventure</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
+        .container {
+            text-align: center;
+        }
         .centered {
             text-align: center;
         }
@@ -89,11 +92,12 @@
             "<p>You are in the memories room.</p>" +
             "<p>This room is filled with books and mementos.</p>" +
             "<p>You spot a worn-out copy of 'The Little Prince' on the shelf.</p>" +
-            "<p>But still no sign of the recipe book...</p><br><br><br>" +
+            "<p>But still no sign of the recipe book...</p><br>" +
             "</div>";
     }
 
-    function ending() {
+
+function ending() {
         var gameContent = document.getElementById("gameContent");
         gameContent.innerHTML += "<div class='centered'>" +
             "<p><br><br>Suddenly, you hear a familiar jingle at the door.</p>" +
