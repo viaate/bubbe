@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Bubbe's Birthday Adventure</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        .centered {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
@@ -60,36 +65,44 @@
     }
 
     function kitchen() {
-        return "<p>You are in the kitchen.</p>" +
+        return "<div class='centered'>" +
+            "<p>You are in the kitchen.</p>" +
             "<p>You smell something delicious...</p>" +
             "<p>Your famous banana egg waffles with tons of chocolate chips!</p>" +
             "<p>But the recipe book is nowhere to be found.</p>" +
-            "<p>You decide to enjoy a meal while you continue my search.</p>";
+            "<p>You decide to enjoy a meal while you continue my search.</p>" +
+            "</div>";
     }
 
     function bedroom() {
-        return "<p>You are in the bedroom.</p>" +
+        return "<div class='centered'>" +
+            "<p>You are in the bedroom.</p>" +
             "<p>This room is filled with warmth and memories.</p>" +
             "<p>You see a photo album on the nightstand.</p>" +
             "<p>You flip through the pages and find pictures of your trips to Boston.</p>" +
-            "<p>You feel some nostalgia.</p><br>";
+            "<p>You feel some nostalgia.</p><br>" +
+            "</div>";
     }
 
     function memories() {
-        return "<p>You are in the memories room.</p>" +
+        return "<div class='centered'>" +
+            "<p>You are in the memories room.</p>" +
             "<p>This room is filled with books and mementos.</p>" +
             "<p>You spot a worn-out copy of 'The Little Prince' on the shelf.</p>" +
-            "<p>But still no sign of the recipe book...</p><br><br><br>";
+            "<p>But still no sign of the recipe book...</p><br><br><br>" +
+            "</div>";
     }
 
     function ending() {
         var gameContent = document.getElementById("gameContent");
-        gameContent.innerHTML += "<br><br><p>Suddenly, you hear a familiar jingle at the door.</p>" +
+        gameContent.innerHTML += "<div class='centered'>" +
+            "<p><br><br>Suddenly, you hear a familiar jingle at the door.</p>" +
             "<p>It's Charlie, wagging her tail happily!</p>" +
             "<p>She's brought the missing recipe book in her mouth!</p>" +
             "<p>You can't help but smile as you thank her for finding it.</p>" +
             "<p>With the recipe book in hand, you feel a sense of relief.</p>" +
-            "<p>Happy birthday Bubbe!</p>"; // Added extra line break
+            "<p>Happy birthday Bubbe!</p>" +
+            "</div>"; // Added extra line break
     }
 
     document.getElementById("gameForm").addEventListener("submit", handleFormSubmit);
