@@ -24,43 +24,39 @@
     </div>
 
     <form id="gameForm">
-        <label for="doorChoice">Which door do you choose? (kitchen/bedroom/memories):</label><br>
+        <label for="doorChoice">Which door do you choose? (M for Memories / B for Bedroom / K for Kitchen):</label><br>
         <input type="text" id="doorChoice" name="doorChoice"><br>
         <input type="submit" value="Submit">
     </form>
 </div>
 
 <script>
-    var visited_rooms = [];
+    var visitedRooms = [];
 
-    function handleFormSubmit(event) {
-        event.preventDefault();
+    function handleFormSubmit(evt) {
+        evt.preventDefault();
         var choice = document.getElementById("doorChoice").value.toLowerCase();
-        if (choice === "kitchen" && !visited_rooms.includes("kitchen")) {
-            displayRoom(kitchen());
-            visited_rooms.push("kitchen");
-        } else if (choice === "bedroom" && !visited_rooms.includes("bedroom")) {
-            displayRoom(bedroom());
-            visited_rooms.push("bedroom");
-        } else if (choice === "memories" && !visited_rooms.includes("memories")) {
+        if (choice === "m" && !visitedRooms.includes("memories")) {
             displayRoom(memories());
-            visited_rooms.push("memories");
+            visitedRooms.push("memories");
+        } else if (choice === "b" && !visitedRooms.includes("bedroom")) {
+            displayRoom(bedroom());
+            visitedRooms.push("bedroom");
+        } else if (choice === "k" && !visitedRooms.includes("kitchen")) {
+            displayRoom(kitchen());
+            visitedRooms.push("kitchen");
         } else {
             alert("Invalid choice or room already visited. Please try again.");
         }
         document.getElementById("gameForm").reset();
+        if (visitedRooms.length === 3) {
+            ending();
+        }
     }
-
-    document.getElementById("gameForm").addEventListener("submit", handleFormSubmit);
 
     function displayRoom(roomContent) {
         var gameContent = document.getElementById("gameContent");
         gameContent.innerHTML += roomContent;
-        if (visited_rooms.length === 3) {
-            setTimeout(function() {
-                ending();
-            }, 5000); // 5 seconds delay
-        }
     }
 
     function kitchen() {
@@ -96,6 +92,8 @@
             "<p>With the recipe book in hand, you feel a sense of relief.</p>" +
             "<p>Happy birthday Bubbe!</p><br>";
     }
+
+    document.getElementById("gameForm").addEventListener("submit", handleFormSubmit);
 </script>
 
 </body>
