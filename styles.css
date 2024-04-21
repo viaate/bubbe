@@ -42,3 +42,15 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #007acc; /* Adjusted hover color */
 }
+
+#doorChoice {
+    display: block;
+    margin: 10px auto; /* Add space between doorChoice and gameForm */
+    text-align: center; /* Center the text within the input */
+}
+
+#gameForm {
+    display: block;
+    margin: 20px auto; /* Center the input horizontally and add space */
+    text-align: center; /* Center the text within the input */
+}
