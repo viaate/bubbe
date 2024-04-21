@@ -8,24 +8,20 @@
 </head>
 <body>
 
-<div class="intro">
-    <p>Welcome to Bubbe's Birthday Adventure!</p>
-    <p>Your special recipe book has gone missing!</p>
-    <p>Help me navigate through my memories to find it.</p>
-    <p>But be careful, there might be surprises along the way!</p>
-</div>
+<div class="container">
+    <div class="intro">
+        <p>Welcome to Bubbe's Birthday Adventure!</p>
+        <p>Your special recipe book has gone missing!</p>
+        <p>Help me navigate through my memories to find it.</p>
+        <p>But be careful, there might be surprises along the way!</p>
+    </div>
 
-<div class="content">
-    <p>You are walking and it is 5 in the morning.</p>
-    <p>As you walk, you notice newspapers scattered on the sidewalk.</p>
-    <p>You decide to help and bring the newspapers inside.</p>
-    <br>
-
-    <p>You continue walking and reach your the house.</p>
-    <p>You enter the living room</p>
-    <p>But today, the room looks different...</p>
-    <p>You see three doors: one leads to the kitchen, one to the bedroom, and one to the memories room.</p>
-    <br>
+    <div class="content">
+        <p>You are walking and it is 5 in the morning.</p>
+        <p>As you walk, you notice newspapers scattered on the sidewalk.</p>
+        <p>You decide to help and bring the newspapers inside.</p>
+        <br>
+    </div>
 
     <form id="gameForm">
         <label for="doorChoice">Which door do you choose? (kitchen/bedroom/memories):</label><br>
@@ -58,43 +54,30 @@
     document.getElementById("gameForm").addEventListener("submit", handleFormSubmit);
 
     function kitchen() {
-        document.write("<p>You are in the kitchen.</p>");
-        document.write("<p>You smell something delicious...</p>");
-        document.write("<p>Your famous banana egg waffles with tons of chocolate chips!</p>");
-        document.write("<p>But the recipe book is nowhere to be found.</p>");
-        document.write("<p>You decide to enjoy a meal while you continue my search.</p>");
-        document.write("<p>As you eat, you hear a faint sound coming from the memories room.</p>");
-        document.write("<br>");
-        setTimeout(function () {}, 3000);
+        var content = document.querySelector('.content');
+        content.innerHTML += "<p>You are in the kitchen.</p>" +
+            "<p>You smell something delicious...</p>" +
+            "<p>Your famous banana egg waffles with tons of chocolate chips!</p>" +
+            "<p>But the recipe book is nowhere to be found.</p>" +
+            "<p>You decide to enjoy a meal while you continue my search.</p>" +
+            "<p>As you eat, you hear a faint sound coming from the memories room.</p><br>";
     }
 
     function bedroom() {
-        document.write("<p>You are in the bedroom.</p>");
-        document.write("<p>This room is filled with warmth and memories.</p>");
-        document.write("<p>You see a photo album on the nightstand.</p>");
-        document.write("<p>You flip through the pages and find pictures of your trips to Boston.</p>");
-        document.write("<p>You feel some nostalgia.</p>");
-        document.write("<br>");
-        setTimeout(function () {}, 3000);
+        var content = document.querySelector('.content');
+        content.innerHTML += "<p>You are in the bedroom.</p>" +
+            "<p>This room is filled with warmth and memories.</p>" +
+            "<p>You see a photo album on the nightstand.</p>" +
+            "<p>You flip through the pages and find pictures of your trips to Boston.</p>" +
+            "<p>You feel some nostalgia.</p><br>";
     }
 
     function memories() {
-        document.write("<p>You are in the memories room.</p>");
-        document.write("<p>This room is filled with books and mementos.</p>");
-        document.write("<p>You spot a worn-out copy of 'The Little Prince' on the shelf.</p>");
-        document.write("<p>But still no sign of the recipe book...</p>");
-        document.write("<br>");
-        setTimeout(function () {}, 12000);
-    }
-
-    function ending() {
-        document.write("<p>Suddenly, you hear a familiar jingle at the door.</p>");
-        document.write("<p>It's Charlie, wagging her tail happily!</p>");
-        document.write("<p>She's brought the missing recipe book in her mouth!</p>");
-        document.write("<p>You can't help but smile as you thank her for finding it.</p>");
-        document.write("<p>With the recipe book in hand, you feel a sense of relief.</p>");
-        document.write("<p>Happy birthday Bubbe!</p>");
-        document.write("<br>");
+        var content = document.querySelector('.content');
+        content.innerHTML += "<p>You are in the memories room.</p>" +
+            "<p>This room is filled with books and mementos.</p>" +
+            "<p>You spot a worn-out copy of 'The Little Prince' on the shelf.</p>" +
+            "<p>But still no sign of the recipe book...</p><br>";
     }
 </script>
 
