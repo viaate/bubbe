@@ -8,52 +8,54 @@
 </head>
 <body>
 
+<div class="intro">
+    <p>Welcome to Bubbe's Birthday Adventure!</p>
+    <p>Your special recipe book has gone missing!</p>
+    <p>Help me navigate through my memories to find it.</p>
+    <p>But be careful, there might be surprises along the way!</p>
+</div>
+
+<div class="content">
+    <p>You are walking and it is 5 in the morning.</p>
+    <p>As you walk, you notice newspapers scattered on the sidewalk.</p>
+    <p>You decide to help and bring the newspapers inside.</p>
+    <br>
+
+    <p>You continue walking and reach your the house.</p>
+    <p>You enter the living room</p>
+    <p>But today, the room looks different...</p>
+    <p>You see three doors: one leads to the kitchen, one to the bedroom, and one to the memories room.</p>
+    <br>
+
+    <form id="gameForm">
+        <label for="doorChoice">Which door do you choose? (kitchen/bedroom/memories):</label><br>
+        <input type="text" id="doorChoice" name="doorChoice"><br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
 <script>
-    function intro() {
-        document.write("<div class='intro'>");
-        document.write("<p>Welcome to Bubbe's Birthday Adventure!</p>");
-        document.write("<p>Your special recipe book has gone missing!</p>");
-        document.write("<p>Help me navigate through my memories to find it.</p>");
-        document.write("<p>But be careful, there might be surprises along the way!</p>");
-        document.write("</div>");
-    }
+    var visited_rooms = [];
 
-    function start_game() {
-        document.write("<div class='content'>");
-        document.write("<p>You are walking and it is 5 in the morning.</p>");
-        document.write("<p>As you walk, you notice newspapers scattered on the sidewalk.</p>");
-        document.write("<p>You decide to help and bring the newspapers inside.</p>");
-        document.write("<br>");
-
-        setTimeout(function () {
-            document.write("<p>You continue walking and reach your the house.</p>");
-            document.write("<p>You enter the living room</p>");
-            document.write("<p>But today, the room looks different...</p>");
-            document.write("<p>You see three doors: one leads to the kitchen, one to the bedroom, and one to the memories room.</p>");
-            document.write("<br>");
-        }, 3000);
-
-        var visited_rooms = [];
-
-        function inputPrompt() {
-            var choice = prompt("Which door do you choose? (kitchen/bedroom/memories)").toLowerCase();
-            if (choice === "kitchen" && !visited_rooms.includes("kitchen")) {
-                kitchen();
-                visited_rooms.push("kitchen");
-            } else if (choice === "bedroom" && !visited_rooms.includes("bedroom")) {
-                bedroom();
-                visited_rooms.push("bedroom");
-            } else if (choice === "memories" && !visited_rooms.includes("memories")) {
-                memories();
-                visited_rooms.push("memories");
-            } else {
-                alert("Invalid choice or room already visited. Please try again.");
-                inputPrompt();
-            }
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        var choice = document.getElementById("doorChoice").value.toLowerCase();
+        if (choice === "kitchen" && !visited_rooms.includes("kitchen")) {
+            kitchen();
+            visited_rooms.push("kitchen");
+        } else if (choice === "bedroom" && !visited_rooms.includes("bedroom")) {
+            bedroom();
+            visited_rooms.push("bedroom");
+        } else if (choice === "memories" && !visited_rooms.includes("memories")) {
+            memories();
+            visited_rooms.push("memories");
+        } else {
+            alert("Invalid choice or room already visited. Please try again.");
         }
-
-        inputPrompt();
+        document.getElementById("gameForm").reset();
     }
+
+    document.getElementById("gameForm").addEventListener("submit", handleFormSubmit);
 
     function kitchen() {
         document.write("<p>You are in the kitchen.</p>");
@@ -94,13 +96,6 @@
         document.write("<p>Happy birthday Bubbe!</p>");
         document.write("<br>");
     }
-
-    function main() {
-        intro();
-        start_game();
-    }
-
-    main();
 </script>
 
 </body>
