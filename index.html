@@ -16,7 +16,7 @@
         <p>But be careful, there might be surprises along the way!</p>
     </div>
 
-    <div class="content">
+    <div class="content" id="gameContent">
         <p>You are walking and it is 5 in the morning.</p>
         <p>As you walk, you notice newspapers scattered on the sidewalk.</p>
         <p>You decide to help and bring the newspapers inside.</p>
@@ -37,13 +37,13 @@
         event.preventDefault();
         var choice = document.getElementById("doorChoice").value.toLowerCase();
         if (choice === "kitchen" && !visited_rooms.includes("kitchen")) {
-            kitchen();
+            displayRoom(kitchen());
             visited_rooms.push("kitchen");
         } else if (choice === "bedroom" && !visited_rooms.includes("bedroom")) {
-            bedroom();
+            displayRoom(bedroom());
             visited_rooms.push("bedroom");
         } else if (choice === "memories" && !visited_rooms.includes("memories")) {
-            memories();
+            displayRoom(memories());
             visited_rooms.push("memories");
         } else {
             alert("Invalid choice or room already visited. Please try again.");
@@ -53,9 +53,13 @@
 
     document.getElementById("gameForm").addEventListener("submit", handleFormSubmit);
 
+    function displayRoom(roomContent) {
+        var gameContent = document.getElementById("gameContent");
+        gameContent.innerHTML += roomContent;
+    }
+
     function kitchen() {
-        var content = document.querySelector('.content');
-        content.innerHTML += "<p>You are in the kitchen.</p>" +
+        return "<p>You are in the kitchen.</p>" +
             "<p>You smell something delicious...</p>" +
             "<p>Your famous banana egg waffles with tons of chocolate chips!</p>" +
             "<p>But the recipe book is nowhere to be found.</p>" +
@@ -64,8 +68,7 @@
     }
 
     function bedroom() {
-        var content = document.querySelector('.content');
-        content.innerHTML += "<p>You are in the bedroom.</p>" +
+        return "<p>You are in the bedroom.</p>" +
             "<p>This room is filled with warmth and memories.</p>" +
             "<p>You see a photo album on the nightstand.</p>" +
             "<p>You flip through the pages and find pictures of your trips to Boston.</p>" +
@@ -73,8 +76,7 @@
     }
 
     function memories() {
-        var content = document.querySelector('.content');
-        content.innerHTML += "<p>You are in the memories room.</p>" +
+        return "<p>You are in the memories room.</p>" +
             "<p>This room is filled with books and mementos.</p>" +
             "<p>You spot a worn-out copy of 'The Little Prince' on the shelf.</p>" +
             "<p>But still no sign of the recipe book...</p><br>";
