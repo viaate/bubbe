@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Bubbe's Birthday Adventure</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
@@ -24,7 +24,7 @@
     </div>
 
     <form id="gameForm">
-        <label for="doorChoice">Which door do you choose? You can only visit each room one. M for Memories / B for Bedroom / K for Kitchen:</label><br>
+        <label for="doorChoice">Which door do you choose? You can only visit each room once. M for Memories / B for Bedroom / K for Kitchen:</label><br>
         <input type="text" id="doorChoice" name="doorChoice"><br>
         <input type="submit" value="Submit">
     </form>
@@ -56,7 +56,7 @@
 
     function displayRoom(roomContent) {
         var gameContent = document.getElementById("gameContent");
-        gameContent.innerHTML += roomContent;
+        gameContent.innerHTML = roomContent; // Update to overwrite existing content
     }
 
     function kitchen() {
@@ -79,7 +79,7 @@
         return "<p>You are in the memories room.</p>" +
             "<p>This room is filled with books and mementos.</p>" +
             "<p>You spot a worn-out copy of 'The Little Prince' on the shelf.</p>" +
-            "<p>But still no sign of the recipe book...</p><br>";
+            "<p>But still no sign of the recipe book...</p><br><br><br>";
     }
 
     function ending() {
@@ -89,7 +89,7 @@
             "<p>She's brought the missing recipe book in her mouth!</p>" +
             "<p>You can't help but smile as you thank her for finding it.</p>" +
             "<p>With the recipe book in hand, you feel a sense of relief.</p>" +
-            "<p>Happy birthday Bubbe!</p><br>";
+            "<p>Happy birthday Bubbe!</p>"; // Added extra line break
     }
 
     document.getElementById("gameForm").addEventListener("submit", handleFormSubmit);
